@@ -1,0 +1,10 @@
+$(document).ready(function(){
+    $('.results-list').empty();
+    <% unless @pages.empty? %>
+      <% @pages.each do |page| %>
+        $('.results-list').append('<a href="<%= page[:page].url %>" target="_blank"><%= page[:page].title.strip %></a><br><h6><%= page[:page].url %></h6><p><%= page[:word_area].squish %></p><hr>');
+      <% end %>
+    <% else %>
+        $('.results-list').append('<h2>No results found.</h2>')
+    <% end %>
+});
